@@ -1,11 +1,11 @@
-var views = require('../../views');
-var auth = require('../../authentication');
+var views = require('../../lib/views');
+var auth = require('../../lib/authentication');
 var Post = require('../../models/post');
 
 module.exports = function (app) {
     app.get('/', function (req, res) {
         Post.find(function (err, posts) {
-            views.render(res, 'blog/home', 'home', { 'posts': posts });
+            views.render(res, 'blog/index', 'home', { 'posts': posts });
         }).limit(10);
     });
     

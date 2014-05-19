@@ -1,5 +1,5 @@
-var views = require('../../views');
-var auth = require('../../authentication')
+var views = require('../../lib/views');
+var auth = require('../../lib/authentication')
 
 module.exports = function (app, passport) {
     app.get('/login', function (req, res) {
@@ -17,7 +17,7 @@ module.exports = function (app, passport) {
 	});
     
     app.get('/admin', auth.isLoggedIn, function (req, res) {
-        views.render(res, 'admin/admin');
+        views.render(res, 'admin/index');
     });
     
     app.get(/\/admin.*/i, auth.isLoggedIn, function (req, res) {
