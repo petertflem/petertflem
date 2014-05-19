@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "nodemon ./app/server.js"
+    "start": "node ./app/server.js | grunt watch"
   },
   "dependencies": {
     "express": "~4.1.2",

@@ -32,6 +32,15 @@ module.exports = function (grunt) {
                 files: {
                     'app/assets/stylesheets/css/main.css': 'app/assets/stylesheets/css/*.css'
                 }
+            },
+            
+            js: {
+                options: {
+                  separator: ';',
+                },
+                files: {
+                    'app/assets/javascript/main.js': ['bower_components/angular/angular.js', 'app/assets/javascript/app.js']
+                }
             }
         },
         
@@ -50,7 +59,12 @@ module.exports = function (grunt) {
 				files: ['app/**/*.styl', 'bower_components/bootstrap/less/*.less'],
 				tasks: ['less:dev', 'stylus:dev', 'concat:css', 'clean:build_css']
 			},
-
+            
+            js: {
+                files: ['app/**/*.js'],
+                tasks: ['concat:js']
+            },
+            
 			jade: {
 				files: '**/*.jade'
 			}
