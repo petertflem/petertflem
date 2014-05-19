@@ -1,7 +1,8 @@
 {
-    "name":  "petertflem",
-    "version": "0.0.1",
-    "dependencies": {
-        "bootstrap": "latest"
-    }
+  "name": "petertflem",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "latest",
+    "angular": "~1.2.16"
+  }
 }

@@ -15,7 +15,7 @@ require('./config/passport')(passport);
 
 // Set view directory and engine
 app.set('view engine', 'jade');
-app.set('views', __dirname + '/areas');
+app.set('views', __dirname + '/views');
 
 // Initialize the routes
 require('./lib/routes').initialize(app, passport, express);
