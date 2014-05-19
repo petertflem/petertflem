@@ -6,7 +6,21 @@ html
         // CSS
         link(rel='stylesheet' href='/stylesheets/css/main.css')
         
-    body
-        div#wrapper!= body
+    body(ng-app='petertflem')
+        header
+            nav
+                ul
+                    li
+                        a(href='/') Home
+                    li
+                        a(href='/admin') Admin
+                    li
+                        a(href='/projects') Projects
+    
+        div#content-wrapper!= body
         
+        footer
+            p Some footer information
+        
+        // JavaScript
         script(src='/javascript/main.js')
