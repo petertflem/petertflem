@@ -5,16 +5,17 @@ var Post = require('../models/post');
 module.exports = function (app) {
     app.get('/', function (req, res) {
         Post.find(function (err, posts) {
-            views.render(res, 'blog/index', 'home', { 'posts': posts });
+            views.render(res, 'blog/index', req, { 'posts': posts });
         }).limit(10);
+        
     });
     
     app.get('/blog/new-post', auth.isLoggedIn, function (req, res) {
-        views.render(res, 'blog/new-post');
+        views.render(res, 'blog/new-post', req);
     });
     
     app.get(/\/blog.*/i, function (req, res) {
-        views.render(res, req.path.substring(1));
+        views.render(res, req.path.substring(1), req);
     });
     
     /* This call should probably be done with ajax */

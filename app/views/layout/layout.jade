@@ -1,26 +1,24 @@
 doctype html
 html
     head
-        title= title
+        title petertflem
         
-        // CSS
         link(rel='stylesheet' href='/stylesheets/css/main.css')
         
-    body(ng-app='petertflem')
+    body
         header
             nav
                 ul
                     li
-                        a(href='/') Home
+                        a(ui-sref='blog') Home
                     li
-                        a(href='/admin') Admin
+                        a(ui-sref='admin') Admin
                     li
-                        a(href='/projects') Projects
+                        a(ui-sref='logout') Projects
     
-        div#content-wrapper!= body
+        <ui-view></ui-view>
         
         footer
             p Some footer information
         
-        // JavaScript
-        script(src='/javascript/main.js')
+        script(data-main='/javascript/require-config' src='/javascript/bower_components/requirejs/require.js')

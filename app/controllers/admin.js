@@ -3,7 +3,7 @@ var auth = require('../lib/authentication')
 
 module.exports = function (app, passport) {
     app.get('/login', function (req, res) {
-        views.render(res, 'admin/login');
+        views.render(res, 'admin/login', req);
     });
     
     app.post('/login', passport.authenticate('local-login', {
@@ -17,10 +17,10 @@ module.exports = function (app, passport) {
 	});
     
     app.get('/admin', auth.isLoggedIn, function (req, res) {
-        views.render(res, 'admin/index');
+        views.render(res, 'admin/index', req);
     });
     
     app.get(/\/admin.*/i, auth.isLoggedIn, function (req, res) {
-        views.render(res, req.path.substring(1));
+        views.render(res, req.path.substring(1), req);
     });
 }

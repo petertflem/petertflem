@@ -1,8 +1,7 @@
-module.exports.render = function(response, view, title, viewData) {
+module.exports.render = function(response, view, req, viewData) {
     response.render(view, viewData || {}, function (err, html) {
-        response.render('layout/layout', {
-            body: html,
-            title: title || view
-        });
+        req.xhr 
+            ? response.end(html) 
+            : response.render('layout/layout');
     });
 }

@@ -39,7 +39,7 @@ module.exports = function (grunt) {
                   separator: ';',
                 },
                 files: {
-                    'app/assets/javascript/main.js': ['bower_components/angular/angular.js', 'app/assets/javascript/app.js']
+                    'app/assets/javascript/main.js': ['bower_components/angular/angular.js', 'bower_components/angular-ui-router/release/angular-ui-router.js', 'app/assets/javascript/app.js']
                 }
             }
         },
@@ -61,7 +61,7 @@ module.exports = function (grunt) {
 			},
             
             js: {
-                files: ['app/**/*.js'],
+                files: ['app/assets/javascript/*.js'],
                 tasks: ['concat:js']
             },
             
