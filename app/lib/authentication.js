@@ -1,6 +1,13 @@
-module.exports.isLoggedIn = function(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
+module.exports.auth = function(req, res, next) {
+    //!req.isAuthenticated() ? res.send(401) : next();
     
-    res.redirect('/login');
+    var authenticated = req.isAuthenticated();
+    
+    // For all non xhr requests the angular doesn't intercept
+    if (!authenticated && !req.xhr)
+        res.redirect('/users/login');
+    else if (!authenticated)
+        res.send(401);
+    else
+        next();
 }

@@ -3,6 +3,7 @@ html
     head
         title petertflem
         
+        link(rel='stylesheet' href='/stylesheets/css/vendor/bootstrap.css')
         link(rel='stylesheet' href='/stylesheets/css/main.css')
         
     body
@@ -14,11 +15,11 @@ html
                     li
                         a(ui-sref='admin') Admin
                     li
-                        a(ui-sref='logout') Projects
+                        a(ui-sref='projects') Projects
     
         <ui-view></ui-view>
         
         footer
             p Some footer information
         
-        script(data-main='/javascript/require-config' src='/javascript/bower_components/requirejs/require.js')
+        script(data-main='/javascript/require-config' src='/javascript/vendor/require.js')

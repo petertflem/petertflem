@@ -1,3 +1,3 @@
-module.exports.render = function(response, view, req, viewData) {
+module.exports.render = function(response, req, view, viewData) {
     req.xhr ? response.render(view, viewData || {}) : response.render('layout/layout')
 }

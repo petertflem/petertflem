@@ -5,8 +5,18 @@ define(['../app'], function (app) {
         
         $stateProvider
             .state('blog', {
-                url: '/',
-                templateUrl: '/'
+                url: '/blog',
+                templateUrl: '/blog'
+            })
+        
+            .state('post', {
+                url: '/blog/post',
+                template: '<ui-view></ui-view>',
+                abstract: true
+            })
+            .state('post.edit', {
+                url: '/edit',
+                templateUrl: '/blog/post/edit'
             })
         
             .state('admin', {
@@ -19,15 +29,19 @@ define(['../app'], function (app) {
                 templateUrl: '/projects'
             })
         
-            .state('login', {
-                url: '/login',
-                templateUrl: '/login'
+            .state('users', {
+                url: '/users',
+                template: '<ui-view></ui-view>',
+                abstract: true
             })
-        /*
-            .state('logout', {
+            .state('users.login', {
+                url: '/login',
+                templateUrl: '/users/login'
+            })
+            .state('users.logout', {
                 url: '/logout',
-                templateUrl: '/logout'
-            })*/;
+                templateUrl: '/users/logout'
+            });
     }]);
     
 });

@@ -1,8 +1,8 @@
 require.config({
     
     paths: {
-        'angular': 'bower_components/angular/angular',
-        'ui.router': 'bower_components/angular-ui-router/release/angular-ui-router'
+        'angular': 'vendor/angular',
+        'ui.router': 'vendor/angular-ui-router'
     },
     
     shim: {

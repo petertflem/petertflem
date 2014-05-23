@@ -5,19 +5,9 @@ module.exports = function (grunt) {
     // Load tasks
     grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-stylus');
-    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-clean');
     
     grunt.initConfig({
-        
-        less: {
-            dev: {
-				files: {
-					'app/assets/stylesheets/css/bootstrap.css': 'bower_components/bootstrap/less/bootstrap.less'
-				}
-			}
-        },
         
         stylus: {
             dev: {
@@ -44,12 +34,6 @@ module.exports = function (grunt) {
             }
         },
         
-        clean: {
-            build_css: {
-                src: ['app/assets/stylesheets/css/bootstrap.css']
-            }
-        },
-        
         delta: {
 			options: {
 				livereload: true
@@ -57,7 +41,7 @@ module.exports = function (grunt) {
 
 			stylesheets: {
 				files: ['app/**/*.styl', 'bower_components/bootstrap/less/*.less'],
-				tasks: ['less:dev', 'stylus:dev', 'concat:css', 'clean:build_css']
+				tasks: ['stylus:dev']
 			},
             
             js: {
