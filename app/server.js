@@ -18,7 +18,7 @@ app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
 
 // Initialize the routes
-require('./lib/routes').initialize(app, passport, express);
+require('./config/routes').initialize(app, passport, express);
 
 // Start the server
 var server = app.listen(3000, function () {

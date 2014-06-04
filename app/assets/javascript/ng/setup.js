@@ -7,11 +7,13 @@ define(['../app'], function (app) {
                 
                 // Success: just return the response
                 response: function (response) {
+                    console.log('hey2');
                     return response || $q.when(response);
                 },
                 
                 // Error: check for the 401 error status
                 responseError: function (rejection) {
+                    console.log('hey');
                     if (rejection.status === 401)
                         $injector.get('$state').transitionTo('users.login');
                     

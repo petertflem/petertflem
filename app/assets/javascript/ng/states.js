@@ -6,17 +6,8 @@ define(['../app'], function (app) {
         $stateProvider
             .state('blog', {
                 url: '/blog',
-                templateUrl: '/blog'
-            })
-        
-            .state('post', {
-                url: '/blog/post',
-                template: '<ui-view></ui-view>',
-                abstract: true
-            })
-            .state('post.edit', {
-                url: '/edit',
-                templateUrl: '/blog/post/edit'
+                templateUrl: '/blog',
+                controller: 'blog'
             })
         
             .state('admin', {
@@ -40,7 +31,8 @@ define(['../app'], function (app) {
             })
             .state('users.logout', {
                 url: '/logout',
-                templateUrl: '/users/logout'
+                templateUrl: '/users/logout',
+                controller: 'logout'
             });
     }]);
     
