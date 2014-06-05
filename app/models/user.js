@@ -7,11 +7,11 @@ var userSchema = mongoose.Schema({
         password: String
     },
     forename: String,
-    surname: String
+    surename: String
 });
 
 userSchema.methods.getName = function () {
-    return this.forename + ' ' + this.surname;
+    return this.forename + ' ' + this.surename;
 }
 
 userSchema.methods.generateHash = function (password) {

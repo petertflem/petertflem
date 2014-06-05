@@ -7,19 +7,23 @@ html
         link(rel='stylesheet' href='/stylesheets/css/main.css')
         
     body
-        header
-            nav
-                ul
-                    li
-                        a(ui-sref='blog') Home
-                    li
-                        a(ui-sref='admin') Admin
-                    li
-                        a(ui-sref='projects') Projects
+        div.container
+            div.row
+                header.col-sm-12
+                    nav
+                        ul.nav.nav-pills
+                            li
+                                a(ui-sref='blog') Home
+                            li
+                                a(ui-sref='admin') Admin
+                            li
+                                a(ui-sref='projects') Projects
     
         ui-view
         
-        footer
-            p Some footer information
+        div.container
+            div.row
+                footer
+                    p Some footer information
         
         script(data-main='/javascript/require-config' src='/javascript/vendor/require.js')

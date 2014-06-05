@@ -8,8 +8,9 @@ module.exports = function (app) {
      */
     app.post('/post/save', auth.auth, function (req, res) {
         var post = new Post();
-        
-        post.author = req.user._id;
+        console.log(req.user);
+        post.author.name = req.user.getName();
+        post.author.id = req.user._id;
         post.title = req.body.title;
         post.body = req.body.body;
         

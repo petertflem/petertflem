@@ -1,7 +1,9 @@
 include ../post/summary
 
-p all blog entries
+div.container
+    div.row
+        h2 Newest entries
 
-ul
-    li(ng-repeat='post in posts')
-        +post-summary()
+        ul.post-list
+            li(ng-repeat='post in posts')
+                +post-summary()

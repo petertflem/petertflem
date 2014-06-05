@@ -1,5 +1,4 @@
 mixin post-summary
     div.post-summary
-        div.date {{post.date}}
-        div.title {{post.title}}
-        div.author by {{post.author}}
+        h3.title {{post.title}}
+        div.meta by {{post.author.name}} at {{post.date | date}}

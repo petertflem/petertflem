@@ -10,6 +10,16 @@ define(['../app'], function (app) {
                 controller: 'blog'
             })
         
+            .state('post', {
+                url: '/post',
+                template: '<ui-view></ui-view>',
+                abstract: true
+            })
+            .state('post.edit', {
+                url: '/edit',
+                templateUrl: '/post/edit'
+            })
+        
             .state('admin', {
                 url: '/admin',
                 templateUrl: '/admin'
@@ -33,6 +43,14 @@ define(['../app'], function (app) {
                 url: '/logout',
                 templateUrl: '/users/logout',
                 controller: 'logout'
+            })
+        
+            // If this state triggers, it is a 404
+            .state('otherwise', {
+                url: '*path',
+                templateUrl: function (stateParams) {
+                    return stateParams.path;
+                }
             });
     }]);
     

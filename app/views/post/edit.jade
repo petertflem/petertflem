@@ -1,13 +1,15 @@
-p edit post
+div.container
+    div.row
+        p edit post
 
-form(action='/blog/post/save', method='post')
-    div
-        label Title
-        input(type='text', name='title')
-    
-    div
-        label Body
-        textarea(name='body')
-        
-    div
-        input(type='submit', value='create')
+        form(action='/post/save', method='post')
+            div
+                label Title
+                input(type='text', name='title')
+
+            div
+                label Body
+                textarea(name='body')
+
+            div
+                input(type='submit', value='create')
