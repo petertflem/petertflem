@@ -1,4 +1,6 @@
-define(['../app'], function (app) {
+define([
+    '../app'
+], function (app) {
     app.config(['$httpProvider', '$provide', function ($httpProvider, $provide) {
         
         // Set 
@@ -15,7 +17,7 @@ define(['../app'], function (app) {
                 // Error: check for the 401 error status
                 responseError: function (rejection) {
                     if (rejection.status === 401)
-                        $injector.get('$state').transitionTo('users.login');
+                        $injector.get('$state').transitionTo('user-login');
                     
                     if (rejection.status === 404)
                         return rejection || $q.when(rejection);

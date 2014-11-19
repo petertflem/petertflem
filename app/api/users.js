@@ -1,20 +1,15 @@
-var auth = require('../middleware/authentication');
+var User = require('../models/user');
 
-module.exports = function (app, passport) {
+module.exports = function (app) {
     
     /*
-     * POST: /users/login
+     * GET: /users.json
      */
-    app.post('/users/login', passport.authenticate('local-login', {
-        successRedirect: '/admin',
-        failureRedirect: '/users/login'
-    }));
-    
-    /*
-     * GET: /users/logout
-     */
-    app.get('/users/logout', auth.auth, function(req, res) {
-        req.logout();
-        res.send(200);
-	});
+    app.get('/users.json', function(req, res) {
+        User.find({}).sort('surename').exec(function (err, users) {
+            err && res.send(500);
+            
+            res.send(200, users);
+        });
+    });
 }

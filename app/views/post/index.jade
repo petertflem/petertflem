@@ -1,0 +1,6 @@
+div.row
+    div.container
+        h1 {{post.title}} 
+        div by {{post.author.name}} at {{post.date | date}}
+        hr
+        div(ng-bind-html='post.body | markdown')

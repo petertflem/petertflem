@@ -1,0 +1,22 @@
+div.container
+    div.row
+        div.col-sm-4
+            ul.nav.nav-pills.nav-stacked
+                li
+                    a(ui-sref='user-new') Create new user
+        
+        div.col-sm-8
+            table.table.table-striped
+                thead
+                    tr
+                        th Last Name
+                        th First Name
+                        th Username
+                        th
+                tbody
+                    tr(ng-repeat='user in users')
+                        td {{ user.surename }}
+                        td {{ user.forename }}
+                        td {{ user.local.username }}
+                        td
+                            a(ui-sref='user-edit({ id: user._id })') Edit

@@ -1,15 +1,10 @@
-div.container
+div.container.post-edit
     div.row
-        p edit post
-
-        form(action='/post/save', method='post')
-            div
-                label Title
-                input(type='text', name='title')
-
-            div
-                label Body
-                textarea(name='body')
-
-            div
-                input(type='submit', value='create')
+        div.col-sm-6
+            input.title(ng-model='post.title')
+            textarea.body(ng-model='post.body')
+            
+        div.col-sm-6
+            div#save-status-feedback.alert
+            h1.preview.title {{ post.title }}
+            div.preview.body(ng-bind-html='post.body | markdown')

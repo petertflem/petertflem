@@ -1,0 +1,24 @@
+div.container
+    div.row
+        div.col-sm-12
+            form(action='/user/create', method='POST')
+
+                input(type='hidden', value='{{user._id}}', name='_id')
+
+                div.form-group
+                    label(for='forename') Forename
+                    input.form-control(type='text', name='forename', placeholder='Forename...', ng-model='user.forename')
+                    
+                div.form-group
+                    label(for='surename') Surename
+                    input.form-control(type='text', name='surename', placeholder='Surename...', ng-model='user.surename')
+
+                div.form-group
+                    label(for='username') Username
+                    input.form-control(type='text', name='username', placeholder='Enter username...', ng-model='user.local.username')
+                    
+                div.form-group
+                    label(for='password') Password
+                    input.form-control(type='password', name='password', placeholder='Enter password...')
+                    
+                button.btn.btn-default(type='submit') Submit

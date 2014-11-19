@@ -4,7 +4,7 @@
   "dependencies": {
     "bootstrap": "latest",
     "angular": "~1.2.16",
-    "angular-ui-router": "~0.2.10",
+    "angular-ui-router": "~0.2.11",
     "requirejs": "~2.1.11"
   },
   "install": {

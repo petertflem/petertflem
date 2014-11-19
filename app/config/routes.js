@@ -14,6 +14,7 @@ module.exports.initialize = function(app, passport, express) {
     // Routes that need authentication
     app.get('/admin', auth.auth);
     app.get('/admin/*', auth.auth);
+    app.get('/post/edit', auth.auth);
     
     // This route handles the rendering of every view in the application.
     app.get('*', function (req, res) {
@@ -31,7 +32,7 @@ module.exports.initialize = function(app, passport, express) {
  * Returns the 404 view if the requested view isn't found.
  * At this point we just guess that every error that can
  * happen when trying to render a view should produce
- * a 404 error. This is probably not entirley correct.
+ * a 404 error. This is probably not entirely correct.
  */
 function renderView(res, req) {
     res.render(req.path.substring(1), function (error, html) {

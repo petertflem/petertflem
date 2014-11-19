@@ -1,8 +1,10 @@
 require.config({
     
     paths: {
-        'angular': 'vendor/angular',
-        'ui.router': 'vendor/angular-ui-router'
+        'angular': 'vendor/angular/angular',
+        'ui.router': 'vendor/angular-ui-router/angular-ui-router',
+        'showdown': 'vendor/showdown',
+        'jquery': 'vendor/jquery/jquery'
     },
     
     shim: {

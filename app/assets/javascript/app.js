@@ -1,6 +1,8 @@
 define([
     'angular',
-    'ui.router'
+    'ui.router',
+    'ng/filters/truncate',
+    'ng/filters/markdown'
 ], function (ng) {
-    return ng.module('petertflem', ['ui.router']);
+    return ng.module('petertflem', ['ui.router', 'truncate', 'markdown']);
 });
