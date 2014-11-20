@@ -12,11 +12,11 @@ define([
                 controller: 'blog'
             })
         
-            .state('view-post', {
-                url: '/blog/:title',
+            .state('post-view', {
+                url: '/blog/:id',
                 templateUrl: '/post',
-                controller: function ($stateParams) {
-                    console.log($stateParams);
+                controller: function ($scope) {
+                    console.log($scope.posts);
                 }
             })
         

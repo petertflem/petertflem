@@ -11,6 +11,7 @@ define([
     'ng/controllers/post-edit',
     'ng/controllers/users',
     'ng/controllers/user-edit'
+    
 ], function (ng) {
     ng.bootstrap(document, ['petertflem']);
 });

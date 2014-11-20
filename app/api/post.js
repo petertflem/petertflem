@@ -1,6 +1,7 @@
 var auth = require('../middleware/authentication');
 var Post = require('../models/post');
 var ObjectId = require('mongoose').Types.ObjectId;
+var slug = require('slug');
 
 module.exports = function (app) {
     
@@ -13,6 +14,7 @@ module.exports = function (app) {
         post.author.name = req.user.getName();
         post.author.id = req.user._id;
         post.title = req.body.title;
+        post.slug = slug(post.title); // Need to check if the slug is unique
         post.body = req.body.body;
         
         // We have to do this, else the upsert will fail
