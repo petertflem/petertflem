@@ -13,11 +13,9 @@ define([
             })
         
             .state('post-view', {
-                url: '/blog/:id',
+                url: '/blog/:slug',
                 templateUrl: '/post',
-                controller: function ($scope) {
-                    console.log($scope.posts);
-                }
+                controller: 'post'
             })
         
             .state('post', {

@@ -38,7 +38,7 @@ module.exports = function (app) {
      * GET: /posts/find-one?id=...
      */
     app.get('/post/find-one', function (req, res) {
-        Post.findOne({ '_id': ObjectId(req.query.id) }, function (err, post) {
+        Post.findOne({ 'slug': req.query.slug }, function (err, post) {
             err ? res.send(500) : res.json(post);
         });
     });

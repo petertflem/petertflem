@@ -6,7 +6,7 @@ div.container
             ul.post-list
                 li(ng-repeat='post in posts')
                     div.post-summary
-                        a(ui-sref='post-view({ id: post._id })')
+                        a(ui-sref='post-view({ slug: post.slug })')
                             h3.title {{post.title}}
                             
                         div.meta by {{post.author.name}} at {{post.date | date : 'd. MMM, h:mm a'}}
