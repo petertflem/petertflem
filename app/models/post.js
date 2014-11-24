@@ -17,23 +17,25 @@ var Post = mongoose.model('Post', postSchema);
 
 
 postSchema.pre('save', function (next) {
-  var count = 0;
   var _this = this;
-  var currentSlug = slug(this.title);
-  generateUniqueSlug();
   
-  
-  function generateUniqueSlug() {
-    Post.findOne({ slug : currentSlug }, function (err, post) {
-      if (post) {
-        currentSlug += ++count;
-        generateUniqueSlug();
-      }
-      
-      _this.slug = currentSlug;
-      next();
-    });
-  }
+  generateUniqueSlug(slug(this.title)).then(function (uniqueSlug) {
+    _this.slug = uniqueSlug;
+    next();
+  });
 });
+
+var tryCount = 1;
+function generateUniqueSlug(slugToFind) {
+  var query = Post.findOne({ slug: slugToFind });
+  
+  query.exec().then(function (found) {
+    
+    if (!found)
+      return slugToFind;
+    
+    return generateUniqueSlug(slugToFind + tryCount++);
+  });
+}
 
 module.exports = Post;
