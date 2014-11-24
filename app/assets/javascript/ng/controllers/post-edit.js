@@ -23,8 +23,7 @@ define([
             timeout = $timeout(function () {
                 $http.post('/post/save', $scope.post)
                     .success(function (result) {
-                        if (!result.updatedExisting)
-                            $scope.post._id = result.id;
+                        $scope.post._id = result.id;
                         
                         $('#save-status-feedback').removeClass('alert-success alert-danger');
                         $('#save-status-feedback').addClass('alert-success').text('Successfully saved!');

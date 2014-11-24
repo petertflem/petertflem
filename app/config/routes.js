@@ -4,8 +4,8 @@ var fs = require('fs');
 module.exports.initialize = function(app, passport, express) {
     
     // Serves static content like CSS and JavaScript
-    app.use(express.static(__dirname + '\\..\\assets'));
-    
+    app.use(express.static(__dirname + '/../assets'));
+    console.log(__dirname + '/../assets');
     // This binds up all of the api data endpoints
     fs.readdirSync('app/api').forEach(function (file) {
         require('../api/' + file.replace('.js', ''))(app, passport);

@@ -44,8 +44,8 @@ define([
                 templateUrl: '/admin/posts',
                 controller: 'posts'
             })
-            .state('posts.id', {
-                url: '/:id',
+            .state('posts.slug', {
+                url: '/:slug',
                 templateUrl: '/post',
                 controller: 'post'
             })
