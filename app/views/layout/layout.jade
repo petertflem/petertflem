@@ -1,29 +1,31 @@
 doctype html
 html
-    head
-        title petertflem
-        
-        link(rel='stylesheet' href='/stylesheets/css/vendor/bootstrap/bootstrap.css')
-        link(rel='stylesheet' href='/stylesheets/css/main.css')
-        
+  head
+    title petertflem
+
+    link(rel='stylesheet' href='/stylesheets/css/vendor/bootstrap/bootstrap.css')
+    link(rel='stylesheet' href='/stylesheets/css/main.css')
+
     body
-        div.container
-            div.row
-                header.col-sm-12
-                    nav
-                        ul.nav.nav-pills
-                            li
-                                a(ui-sref='blog') Home
-                            li
-                                a(ui-sref='admin') Admin
-                            li
-                                a(ui-sref='projects') Projects
-    
-        ui-view
-        
-        div.container
-            div.row
-                footer
-                    p Some footer information
-        
-        script(data-main='/javascript/require-config' src='/javascript/vendor/requirejs/require.js')
+      div.container
+        div.row
+          header.col-sm-12
+            nav
+              ul.nav.nav-pills
+                li
+                  a(ui-sref='frontpage') Home
+                li
+                  a(ui-sref='blog') Blog
+                li
+                  a(ui-sref='admin') Admin
+                li
+                  a(ui-sref='projects') Projects
+
+      ui-view
+
+      div.container
+        div.row
+          footer
+            p Some footer information
+
+      script(data-main='/javascript/require-config' src='/javascript/vendor/requirejs/require.js')
