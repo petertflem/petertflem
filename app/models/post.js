@@ -3,7 +3,10 @@ var slug = require('slug');
 
 var postSchema = mongoose.Schema({
   title: String,
-  slug: String,
+  slug: {
+		type: String,
+		unique: true
+	},
   author: {
     name: String,
     id: String
@@ -15,26 +18,23 @@ var postSchema = mongoose.Schema({
 
 var Post = mongoose.model('Post', postSchema);
 
-
 postSchema.pre('save', function (next) {
   var _this = this;
   
-  generateUniqueSlug(slug(this.title)).then(function (uniqueSlug) {
+  generateUniqueSlug(slug(this.title.toLowerCase()), 0).then(function (uniqueSlug) {
     _this.slug = uniqueSlug;
     next();
   });
 });
 
-var tryCount = 1;
-function generateUniqueSlug(slugToFind) {
-  var query = Post.findOne({ slug: slugToFind });
+function generateUniqueSlug(slugToFind, tryCount) {
+	var slugToTry = tryCount === 0 ? slugToFind : slugToFind + tryCount;
   
-  query.exec().then(function (found) {
-    
+  return Post.findOne({ slug: slugToTry }).exec().then(function (found) {
     if (!found)
-      return slugToFind;
+      return slugToTry;
     
-    return generateUniqueSlug(slugToFind + tryCount++);
+    return generateUniqueSlug(slugToFind, ++tryCount);
   });
 }
 
