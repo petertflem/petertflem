@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var slug = require('slug');
+var Schema = mongoose.Schema;
 
 var postSchema = mongoose.Schema({
   title: String,
@@ -8,8 +9,8 @@ var postSchema = mongoose.Schema({
 		unique: true
 	},
   author: {
-    name: String,
-    id: String
+    type: Schema.Types.ObjectId, 
+    ref: 'User'
   },
   body: String,
   comments: [{ author: String, body: String, date: Date }],

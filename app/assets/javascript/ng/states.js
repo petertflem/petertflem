@@ -6,9 +6,10 @@ define([
 		$locationProvider.html5Mode(true);
 
 		$stateProvider
-		.state('frontpage', {
+		.state('home', {
 			url: '/',
-			templateUrl: '/'
+			templateUrl: '/',
+      controller: 'home'
 		})
 
 		.state('blog', {

@@ -18,7 +18,7 @@ module.exports.initialize = function(app, passport, express) {
 
 	// Handles the special case of requesting the root
 	app.get('/', function (req, res, next) {
-		req.xhr ? res.render('frontpage') : next();
+		req.xhr ? res.render('home') : next();
 	});
 
 	// This route handles the rendering of every view in the application.

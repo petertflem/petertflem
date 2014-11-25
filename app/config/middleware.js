@@ -4,7 +4,7 @@ var expressSession = require('express-session');
 
 module.exports = function (app, passport) {
     app.use(cookieParser());
-    app.use(bodyParser());
+    app.use(bodyParser({ uploadDir:'./' }));
     app.use(expressSession({secret: 'wakkawakkadumbledore!'}));
     app.use(passport.initialize());
     app.use(passport.session());

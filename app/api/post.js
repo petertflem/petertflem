@@ -12,8 +12,7 @@ module.exports = function (app) {
     Post.findById(req.body._id, function (err, post) {
       post = post || new Post();
       
-      post.author.name = req.user.getName();
-      post.author.id = req.user._id;
+      post.author = req.user._id;
       post.title = req.body.title;
       post.body = req.body.body;
       
@@ -27,6 +26,7 @@ module.exports = function (app) {
 
   /*
    * GET: /posts/find-one
+   * Query string parameters: id=... or slug=...
    */
   app.get('/post/find-one', function (req, res) {
     var findCriteria = req.query.slug ? { slug: req.query.slug } : { _id: req.query.id };
@@ -34,7 +34,7 @@ module.exports = function (app) {
     if (!findCriteria)
       res.send(500);
 
-    Post.findOne(findCriteria, function (err, post) {
+    Post.findOne(findCriteria).populate('author').exec(function (err, post) {
       err ? res.send(500) : res.json(post);
     });
   });

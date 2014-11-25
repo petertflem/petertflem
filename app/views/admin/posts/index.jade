@@ -7,7 +7,7 @@ div.container
           a(ng-href='/admin/posts/{{post.slug}}')
             div.post-summary
             h3.title {{post.title}}
-            div.meta by {{post.author.name}} at {{post.date | date}}
+            div.meta by {{post.author.forename}} {{post.author.surename}} at {{post.date | date}}
 
           a(ui-sref='post.edit({ id: post._id })') Edit
 

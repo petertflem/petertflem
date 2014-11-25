@@ -13,19 +13,21 @@ html
             nav
               ul.nav.nav-pills
                 li
-                  a(ui-sref='frontpage') Home
+                  a(ui-sref='home') Home
                 li
                   a(ui-sref='blog') Blog
                 li
                   a(ui-sref='admin') Admin
                 li
                   a(ui-sref='projects') Projects
+      
+      div.content
+        ui-view
 
-      ui-view
-
-      div.container
+      div.container.footer-wrapper
         div.row
-          footer
-            p Some footer information
+          div.col-sm-12
+            footer
+              p Some footer information
 
       script(data-main='/javascript/require-config' src='/javascript/vendor/requirejs/require.js')

@@ -1,0 +1,17 @@
+div.home
+  div.top-image
+  
+  div.content
+    div.container
+      div.row
+        div.col-xs-10.col-xs-offset-1.col-sm-8.col-sm-offset-2
+          ul.recent-posts
+            li(ng-repeat='post in posts')
+              div.post-summary
+                div(style='background: url({{post.author.image}}) no-repeat; background-size: 45px 45px;').author-image 
+                
+                a(ui-sref='post-view({ slug: post.slug })')
+                  h2.title {{post.title}}
+                
+                div.meta by {{post.author.forename}} {{post.author.surename}} at {{post.date | date : 'd. MMM, h:mm a'}}
+                div.preview {{ post.body | cut:false:255:'...' }}
