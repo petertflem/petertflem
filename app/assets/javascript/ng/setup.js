@@ -3,7 +3,7 @@ define([
 ], function (app) {
     app.config(['$httpProvider', '$provide', function ($httpProvider, $provide) {
         
-        // Set 
+        // Set angular to always send xhr requests 
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         
         $httpProvider.interceptors.push(['$q', '$injector', function ($q, $injector) {
@@ -14,7 +14,7 @@ define([
                     return response || $q.when(response);
                 },
                 
-                // Error: check for the 401 error status
+                // Error: check for the error status
                 responseError: function (rejection) {
                     if (rejection.status === 401)
                         $injector.get('$state').transitionTo('user-login');
