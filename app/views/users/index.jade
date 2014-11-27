@@ -13,6 +13,7 @@ div.container
                         th First Name
                         th Username
                         th
+                        th
                 tbody
                     tr(ng-repeat='user in users')
                         td {{ user.surename }}
@@ -20,3 +21,5 @@ div.container
                         td {{ user.local.username }}
                         td
                             a(ui-sref='user-edit({ id: user._id })') Edit
+                        th
+                            a(ng-click='deleteUser(user._id, $index)') Delete

@@ -7,7 +7,8 @@ module.exports = function (app) {
      */
     app.get('/users.json', function(req, res) {
         User.find({}).sort('surename').exec(function (err, users) {
-            err && res.send(500);
+            if (err)
+              return res.send(500);
             
             res.send(200, users);
         });
